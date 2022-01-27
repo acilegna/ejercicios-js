@@ -106,12 +106,11 @@ fibonacci, ( 1, 1, 2, 3, 5, 8, 13, 21 ).*/
 
 console.log( "EJERCICIO 3" );
 
-const fibonacci = [ 0, 1 ];
+const fiboInicial = [ 0, 1 ];
 for ( i = 2; i <= 50; i++ )
 {
-  fibonacci.push( fibonacci[ i - 1 ] + fibonacci[ i - 2 ] );
-  console.log( fibonacci[ i ] );
+  fiboInicial[ i ] = fiboInicial[ i - 2 ] + fiboInicial[ i - 1 ];
 
 }
 
-
+console.log( fiboInicial );
