@@ -1,52 +1,50 @@
-/**
- *  Dado un arreglo de números enteros, Imprimir solamente aquellos que
-          son denominados números primos, (usar arreglo denominado como
-          "ejercicio1").
- */
 console.log( "EJERCICIO 1" );
-const ejercicio1 = [
-  3, 100, 85, 64, 46, 39, 40, 30, 20, 24, 25, 6, 10, 54, 82, 71, 67, 77, 17, 29,
-  19, 88, 456, 13, 23, 24,
-];
-//3,71,19,13,23
+const ejercicio1 =
+  [
+    3, 100, 85, 64, 46, 39, 40, 30, 20, 24, 25, 6, 10, 54, 82, 71, 67, 77, 17, 29, 19, 88, 456, 13, 23, 24,
+  ];
+let contador = 0;
 
-let $contador = 0;
-
-for ( let $indice = 0; $indice < ejercicio1.length; $indice++ )
+const esPrimo = () =>
 {
-  $elemento = ejercicio1[ $indice ];
-  for ( let $serie = 1; $serie < $elemento; $serie++ )
+  //ciclo para recorrer el arreglo
+  for ( let indice = 0; indice < ejercicio1.length; indice++ )
   {
-    if ( $elemento % $serie == 0 )
+    //guardar elementos del arreglo en variable
+    let elemento = ejercicio1[ indice ];
+    //ciclo for para sacar la cantidad de elementos divisores de los elementos del arreglo
+    for ( let serie = 1; serie < elemento; serie++ )
     {
-      $contador++;
+      //validar si el resto de su división es cero
+      if ( elemento % serie == 0 )
+      {
+        //aumenta contador por cada resultado igual a cero
+        contador++;
+      }
     }
-  }//fin ciclo for2
-  //console.log( $contador );
 
-  if ( $contador < 2 )
-  {
-    console.log( "El numero: " + $elemento + " ES PRIMO " );
-    //Reiniciar contador
-    $contador = 0;
+    // si contador es mayor a 2 y el elemento del arreglo es mayor a 1 entonces arroja este resultado
+    if ( contador < 2 && elemento > 1 )
+    {
+      console.log( "El numero: " + elemento + " ES PRIMO " );
+      //Reiniciar contador para que inicialice desde 0 con cada elemento del arreglo despues de sacar el total de su operacion
+      contador = 0;
+    }
+    //de lo contrario a la condicion anterior da este resultado
+    else
+    {
+      console.log( "El numero: " + elemento + " No es primo " );
+      //Reiniciar contador para que inicialice desde 0 con cada elemento del arreglo despues de sacar el total de su operacion
+      contador = 0;
+    }
 
-  } else
-  {
-    // console.log( "El numero: " + $elemento + " No es primo " );
-    //Reiniciar contador
-    $contador = 0;
+  }//fin ciclo1
+}
+//ejecutar funcion
+esPrimo();
+/******************************************EJERCICIO 2******************************************************************** */
+console.log( "EJERCICIO 2" );
 
-  }
-
-}//fin ciclo1
-
-/**
- *  Ramón quiere hacer una fiesta privada en donde solo entre un número
-          exclusivo de personas, ayudale al portero a solo dejar pasar a
-          aquellas personas mayores de edad que sean familiares de Ramón. (con
-          imprimir los usuarios que se admitirán basta, usar el arreglo
-          denominado como "ejercicio2").
- */
 const ejercicio2 = [
   {
     nombre: "Gabriel",
@@ -79,38 +77,51 @@ const ejercicio2 = [
     esFamiliar: true,
   },
 ];
-console.log( "EJERCICIO 2" );
-//con ciclo FOREACH
-ejercicio2.forEach( ( elemento ) =>
-{
-  //console.log( elemento );
-  let edades = elemento.edad;
-  let nombres = elemento.nombre;
-  edades >= 18 ? console.log( `Permitidos en la fiesta ` + nombres ) : console.log( `No permitidos en la fiesta ` + nombres );
 
-} );
+//FUNCION SACAR PERSONAS PERMITIDAS
+const sonPermitidos = () =>
+{
+  //con ciclo FOREACH
+  ejercicio2.forEach( ( elemento ) =>
+  {
+    //console.log( elemento );
+    let edades = elemento.edad;
+    let nombres = elemento.nombre;
+    edades >= 18 ? console.log( `Permitido en la fiesta ` + nombres ) : console.log( `No permitido en la fiesta ` + nombres );
+
+  } );
+}
+
+//ejecutar funcion
+sonPermitidos();
 
 //con ciclo FOR
 /*
-for ( let $i = 0; $i < ejercicio2.length; $i++ )
+const sonPermitidos = () =>
 {
-  //console.log( ejercicio2 );
-  let edades = ejercicio2[ $i ][ 'edad' ]
-  let nombres = ejercicio2[ $i ][ 'nombre' ];
-  edades >= 18 ? console.log( `Permitidos en la fiesta ` + nombres ) : console.log( `No permitidos en la fiesta ` + nombres );
+  for ( let $i = 0; $i < ejercicio2.length; $i++ )
+  {
+    //console.log( ejercicio2 );
+    let edades = ejercicio2[ $i ][ 'edad' ]
+    let nombres = ejercicio2[ $i ][ 'nombre' ];
+    edades >= 18 ? console.log( `Permitidos en la fiesta ` + nombres ) : console.log( `No permitidos en la fiesta ` + nombres );
+  }
 }
 */
-/*
-Con ayuda de ciclos imprime los primeros 50 números de la suceción de
-fibonacci, ( 1, 1, 2, 3, 5, 8, 13, 21 ).*/
+/******************************************EJERCICIO 3******************************************************************** */
+
 
 console.log( "EJERCICIO 3" );
-
-const fiboInicial = [ 0, 1 ];
-for ( i = 2; i <= 50; i++ )
+const fiboNaci = () =>
 {
-  fiboInicial[ i ] = fiboInicial[ i - 2 ] + fiboInicial[ i - 1 ];
+  const fiboInicial = [ 0, 1 ];
+  for ( i = 2; i <= 50; i++ )
+  {
+    fiboInicial[ i ] = fiboInicial[ i - 2 ] + fiboInicial[ i - 1 ];
 
+  }
+  console.log( fiboInicial );
 }
 
-console.log( fiboInicial );
+fiboNaci();
+
